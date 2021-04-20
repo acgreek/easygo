@@ -36,6 +36,10 @@ func (h *Desc) fd() int {
 	return int(h.file.Fd())
 }
 
+func (h *Desc) FD() uintptr {
+	return h.file.Fd()
+}
+
 // Must is a helper that wraps a call to a function returning (*Desc, error).
 // It panics if the error is non-nil and returns desc if not.
 // It is intended for use in short Desc initializations.
