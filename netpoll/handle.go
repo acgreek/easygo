@@ -23,6 +23,10 @@ func NewDesc(fd uintptr, ev Event) *Desc {
 	return &Desc{os.NewFile(fd, ""), ev}
 }
 
+func NewDescFromFile(file *os.File, ev Event) *Desc {
+	return &Desc{file, ev}
+}
+
 // Close closes underlying file.
 func (h *Desc) Close() error {
 	return h.file.Close()
